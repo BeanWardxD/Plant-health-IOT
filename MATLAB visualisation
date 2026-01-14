@@ -1,0 +1,23 @@
+channelID = 3224928; %Sets channel and field to use
+fieldNumber = 5;
+readAPIKey = 'QGV1CM7R4YQ2DULB';
+data = thingSpeakRead(channelID, 'Fields', fieldNumber, 'NumPoints', 20, 'ReadKey', readAPIKey, 'OutputFormat', 'table');
+data.Properties.VariableNames; %Just to check variable name for next line
+    
+category = string(data.HealthPrediction);
+category = category(category ~="");
+
+%Seperates the categories and counts them
+[uniqueCats, ~, idx]= unique(category);
+frequency = accumarray(idx,1);
+
+%Actually create the plot
+bar(frequency)
+set(gca,'XTickLabel', uniqueCats)
+xlabel('Healh prediction')
+ylabel('Frequency of prediction in last 20 updates (5 mins)')
+title('Recent plant health predictions')
+    
+drawnow
+
+   
