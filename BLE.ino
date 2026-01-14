@@ -54,7 +54,7 @@ void loop() {
       float tempC = dht.readTemperature();
       int ldrValue = analogRead(ldrPin);
       float soilValue = analogRead(soilPin);
-      Serial.print(soilValue);
+      //Serial.print(soilValue);
       if (soilValue < waterMoisture){
             soilValue = waterMoisture;
       }
@@ -62,9 +62,9 @@ void loop() {
             soilValue = airMoisture;
       }
       float soilZeroed = (soilValue - waterMoisture);
-      Serial.print(soilZeroed);
+      //Serial.print(soilZeroed);
       float soilFlipped= (soilZeroed/(airMoisture-waterMoisture))*100;
-      Serial.print(soilFlipped);
+      //Serial.print(soilFlipped);
       float soilMoisture = 100-soilFlipped;
       //Prints so you know they are working
       Serial.print("Humidity: ");
