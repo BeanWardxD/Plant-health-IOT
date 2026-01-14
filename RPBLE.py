@@ -31,7 +31,8 @@ async def est_ble(mac):
             await asyncio.sleep(1)  #Waits before retrying so it doesnt spam messages
 
 async def recv_ble(client):
-    while True:
+    likely_BLE_failure = 0
+    while likely_BLE_failure < 6:
         try:
             #Waits to receive the JSON from the arduino then decodes it and tries again if it fails
             raw_bytes = await client.read_gatt_char(BLE_CHAR_UUID)
@@ -42,6 +43,8 @@ async def recv_ble(client):
             return useable_json
         except Exception as e:
             print(f"BLE read or JSON decode failed: {e}")
+            likely_BLE_failure += 1
+            await asyncio.sleep(1)
         
 
 def process(data, model):
@@ -117,3 +120,4 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
