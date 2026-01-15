@@ -31,3 +31,9 @@ If you want to run the matlab script for your own channel replace the API key an
 
 readAPIKey = 'QGV1CM7R4YQ2DULB';
 channelID = 3224928;
+
+
+If you want to recreate the machine learning model make sure you download this dataset by Ziya07
+https://www.kaggle.com/datasets/ziya07/plant-health-data
+
+Then make sure you store it with Plants_AI_training.ipynb
