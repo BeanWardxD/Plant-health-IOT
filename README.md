@@ -9,6 +9,7 @@ int dhtPin = 13;
 Make sure you have the right libraries and then upload it to your arduino
 
 What to do with RPBLE.py:
+
 This is the thingspeak API key you must change it to use it on your own channel
 
 API_KEY = "ZOR5L68NGXEE6FUQ"
