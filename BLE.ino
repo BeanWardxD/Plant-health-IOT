@@ -73,7 +73,7 @@ void loop() {
       Serial.print(tempC);
       Serial.print("°C | Light: ");
       Serial.print(ldrValue);
-      Serial.print(" | Soil Moisture: ");
+      Serial.print("% | Soil Moisture: ");
       Serial.println(soilMoisture);
       
       //Creates and sends JSON so Pi can process it
